@@ -19,26 +19,15 @@ public class Test05 {
         String str = "销售:张三;财务:李四;销售:王五;财务:赵六;程序:mike;程序:jerry;美工:jackson;前端:green;前端:nick;程序:钱七;销售:alice";
         String[] ss = str.split(";|；");
         Map<String, Integer> map = new HashMap<String, Integer>();
-        Set<String> set = new HashSet<String>();
-        for (int i = 0; i < ss.length; i++){
-            String[] every = ss[i].split(":|：");
-            String key = every[0];
-            set.add(key);
-        }
-        for (String key : set){
-            map.put(key, 0);
-        }
-        for (int i =0; i < ss.length; i++){
-            String[] every = ss[i].split(":|：");
-            String key = every[0];
-            if (set.contains(key)){
-                map.put(key, map.get(key) + 1);
+        for (String e : ss){
+            String[] every = e.split(":|：");
+            Integer count = map.get(every[0]);
+            if (count == null){
+                map.put(every[0], 1);
+            }else {
+                map.put(every[0], ++count);
             }
         }
-        Set<String> keySet = map.keySet();
-        Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
-        System.out.println(keySet);
-        System.out.println(entrySet);
+        System.out.println(map);
     }
-	 
 }
