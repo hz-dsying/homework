@@ -13,7 +13,7 @@ public class Test06 {
         // \d{3,4}-\d{7}
         Scanner console = new Scanner(System.in);
         String str = console.nextLine();
-        System.out.println(str.matches("\\d{3,4}-\\d{7}"));
+        System.out.println(str.matches("\\d{3,4}-\\d{7,8}"));
     }
 
 }
